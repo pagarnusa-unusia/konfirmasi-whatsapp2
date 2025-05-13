@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konfirmasi Pembayaran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #2e7d32;
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header img {
+      max-height: 80px;
+    }
+
+    main {
+      margin-top: 40px;
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #27672a;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logopn.png" alt="Logo"> <!-- Ganti dengan logo asli -->
+  </header>
+
+  <main>
+    <label for="nama">Masukkan Nama Anda:</label>
+    <input type="text" id="nama" placeholder="Contoh: Ikramulwali">
+    <button onclick="kirimWA()">Konfirmasi via WhatsApp</button>
+  </main>
+
+  <script>
+    function kirimWA() {
+      var nama = document.getElementById("nama").value.trim();
+      if (nama === "") {
+        alert("Silakan isi nama Anda terlebih dahulu.");
+        return;
+      }
+      var nomor = "6285210609076";
+      var pesan = `Assalamualaikum Mbk\nSaya ${nama} Izin konfirmasi pembayaran MKNUPN\nDengan Metode Pembayaran VIA Transfer`;
+      var url = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
